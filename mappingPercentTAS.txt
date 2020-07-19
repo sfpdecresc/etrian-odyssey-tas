@@ -37,7 +37,7 @@ A 76{_}
 #cal[keyboard_a]     _
 #cal[keyboard_s]     _
 #cal[keyboard_ent] 5{_}
-A 114{_}
+A 116{_}
 
 // mash through talking
 A 4{_}
@@ -81,7 +81,7 @@ A                        38{_}
 
 // no more
 R _
-A 96{_}
+A 97{_}
 
 // formation
 D    _
@@ -139,7 +139,7 @@ A 86{_}
 
 // to the forest
 D     _
-A 222{_}
+A 223{_}
 A 504{_}
 
 // draw BF1 map
@@ -338,7 +338,7 @@ A 13{_}
 #cal[crawl_forward]
 
 // ask the guard what a map is
-25{_}
+26{_}
 A    _
 A  2{_}
 A 18{_}
