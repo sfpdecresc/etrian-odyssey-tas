@@ -1,0 +1,300 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// DRAWING A MAP -------------------------
+// notes:
+// - a pencil line cannot start on a border
+// - a pencil line can traverse the entire segment with a single stroke
+// - a pencil line needs to start with a buffer hold command, though the location doesn't matter
+
+#fxn[map_scrollnorth] @sty[005,050,1] 69{_}
+#fxn[map_scrolleast]  @sty[145,005,1] 69{_}
+#fxn[map_scrollsouth] @sty[005,145,1] 69{_}
+#fxn[map_scrollwest]  @sty[050,005,1] 69{_}
+
+#fxn[map_zoom_ab12] @sty[027,027,1] 69{_}
+#fxn[map_zoom_ab23] @sty[057,027,1] 69{_}
+#fxn[map_zoom_ab34] @sty[087,027,1] 69{_}
+#fxn[map_zoom_ab45] @sty[117,027,1] 69{_}
+#fxn[map_zoom_ab56] @sty[147,027,1] 69{_}
+#fxn[map_zoom_ab67] @sty[177,027,1] 69{_}
+
+#fxn[map_zoom_bc12] @sty[027,057,1] 69{_}
+#fxn[map_zoom_bc23] @sty[057,057,1] 69{_}
+#fxn[map_zoom_bc34] @sty[087,057,1] 69{_}
+#fxn[map_zoom_bc45] @sty[117,057,1] 69{_}
+#fxn[map_zoom_bc56] @sty[147,057,1] 69{_}
+#fxn[map_zoom_bc67] @sty[177,057,1] 69{_}
+
+#fxn[map_zoom_cd12] @sty[027,087,1] 69{_}
+#fxn[map_zoom_cd23] @sty[057,087,1] 69{_}
+#fxn[map_zoom_cd34] @sty[087,087,1] 69{_}
+#fxn[map_zoom_cd45] @sty[117,087,1] 69{_}
+#fxn[map_zoom_cd56] @sty[147,087,1] 69{_}
+#fxn[map_zoom_cd67] @sty[177,087,1] 69{_}
+
+#fxn[map_zoom_de12] @sty[027,117,1] 69{_}
+#fxn[map_zoom_de23] @sty[057,117,1] 69{_}
+#fxn[map_zoom_de34] @sty[087,117,1] 69{_}
+#fxn[map_zoom_de45] @sty[117,117,1] 69{_}
+#fxn[map_zoom_de56] @sty[147,117,1] 69{_}
+#fxn[map_zoom_de67] @sty[177,117,1] 69{_}
+
+#fxn[map_zoom_ef12] @sty[027,147,1] 69{_}
+#fxn[map_zoom_ef23] @sty[057,147,1] 69{_}
+#fxn[map_zoom_ef34] @sty[087,147,1] 69{_}
+#fxn[map_zoom_ef45] @sty[117,147,1] 69{_}
+#fxn[map_zoom_ef56] @sty[147,147,1] 69{_}
+#fxn[map_zoom_ef67] @sty[177,147,1] 69{_}
+
+#fxn[map_pencil]  @sty[200,030,1]
+#fxn[map_eraser]  @sty[220,030,1]
+#fxn[map_brush]   @sty[200,050,1]
+#fxn[map_scraper] @sty[220,050,1]
+
+// the map needs to be contacted for one frame before it registers drawings
+// for good-looking code, should probably fill that frame slot with the set tool fxn
+// otherwise, just use this arbitrary point fxn
+#fxn[map_xx_yy] @sty[012,190,1]
+
+#fxn[map_00_00] @sty[012,190,1]
+#fxn[map_01_00] @sty[030,190,1]
+#fxn[map_02_00] @sty[048,190,1]
+#fxn[map_03_00] @sty[065,190,1]
+#fxn[map_04_00] @sty[084,190,1]
+#fxn[map_05_00] @sty[102,190,1]
+#fxn[map_06_00] @sty[120,190,1]
+#fxn[map_07_00] @sty[138,190,1]
+#fxn[map_08_00] @sty[155,190,1]
+#fxn[map_09_00] @sty[174,190,1]
+#fxn[map_10_00] @sty[190,190,1]
+
+#fxn[map_00_01] @sty[012,174,1]
+#fxn[map_01_01] @sty[030,174,1]
+#fxn[map_02_01] @sty[048,174,1]
+#fxn[map_03_01] @sty[065,174,1]
+#fxn[map_04_01] @sty[084,174,1]
+#fxn[map_05_01] @sty[102,174,1]
+#fxn[map_06_01] @sty[120,174,1]
+#fxn[map_07_01] @sty[138,174,1]
+#fxn[map_08_01] @sty[155,174,1]
+#fxn[map_09_01] @sty[174,174,1]
+#fxn[map_10_01] @sty[190,174,1]
+
+#fxn[map_00_02] @sty[012,155,1]
+#fxn[map_01_02] @sty[030,155,1]
+#fxn[map_02_02] @sty[048,155,1]
+#fxn[map_03_02] @sty[065,155,1]
+#fxn[map_04_02] @sty[084,155,1]
+#fxn[map_05_02] @sty[102,155,1]
+#fxn[map_06_02] @sty[120,155,1]
+#fxn[map_07_02] @sty[138,155,1]
+#fxn[map_08_02] @sty[155,155,1]
+#fxn[map_09_02] @sty[174,155,1]
+#fxn[map_10_02] @sty[190,155,1]
+
+#fxn[map_00_03] @sty[012,138,1]
+#fxn[map_01_03] @sty[030,138,1]
+#fxn[map_02_03] @sty[048,138,1]
+#fxn[map_03_03] @sty[065,138,1]
+#fxn[map_04_03] @sty[084,138,1]
+#fxn[map_05_03] @sty[102,138,1]
+#fxn[map_06_03] @sty[120,138,1]
+#fxn[map_07_03] @sty[138,138,1]
+#fxn[map_08_03] @sty[155,138,1]
+#fxn[map_09_03] @sty[174,138,1]
+#fxn[map_10_03] @sty[190,138,1]
+
+#fxn[map_00_04] @sty[012,120,1]
+#fxn[map_01_04] @sty[030,120,1]
+#fxn[map_02_04] @sty[048,120,1]
+#fxn[map_03_04] @sty[065,120,1]
+#fxn[map_04_04] @sty[084,120,1]
+#fxn[map_05_04] @sty[102,120,1]
+#fxn[map_06_04] @sty[120,120,1]
+#fxn[map_07_04] @sty[138,120,1]
+#fxn[map_08_04] @sty[155,120,1]
+#fxn[map_09_04] @sty[174,120,1]
+#fxn[map_10_04] @sty[190,120,1]
+
+#fxn[map_00_05] @sty[012,102,1]
+#fxn[map_01_05] @sty[030,102,1]
+#fxn[map_02_05] @sty[048,102,1]
+#fxn[map_03_05] @sty[065,102,1]
+#fxn[map_04_05] @sty[084,102,1]
+#fxn[map_05_05] @sty[102,102,1]
+#fxn[map_06_05] @sty[120,102,1]
+#fxn[map_07_05] @sty[138,102,1]
+#fxn[map_08_05] @sty[155,102,1]
+#fxn[map_09_05] @sty[174,102,1]
+#fxn[map_10_05] @sty[190,102,1]
+
+#fxn[map_00_06] @sty[012,084,1]
+#fxn[map_01_06] @sty[030,084,1]
+#fxn[map_02_06] @sty[048,084,1]
+#fxn[map_03_06] @sty[065,084,1]
+#fxn[map_04_06] @sty[084,084,1]
+#fxn[map_05_06] @sty[102,084,1]
+#fxn[map_06_06] @sty[120,084,1]
+#fxn[map_07_06] @sty[138,084,1]
+#fxn[map_08_06] @sty[155,084,1]
+#fxn[map_09_06] @sty[174,084,1]
+#fxn[map_10_06] @sty[190,084,1]
+
+#fxn[map_00_07] @sty[012,065,1]
+#fxn[map_01_07] @sty[030,065,1]
+#fxn[map_02_07] @sty[048,065,1]
+#fxn[map_03_07] @sty[065,065,1]
+#fxn[map_04_07] @sty[084,065,1]
+#fxn[map_05_07] @sty[102,065,1]
+#fxn[map_06_07] @sty[120,065,1]
+#fxn[map_07_07] @sty[138,065,1]
+#fxn[map_08_07] @sty[155,065,1]
+#fxn[map_09_07] @sty[174,065,1]
+#fxn[map_10_07] @sty[190,065,1]
+
+#fxn[map_00_08] @sty[012,048,1]
+#fxn[map_01_08] @sty[030,048,1]
+#fxn[map_02_08] @sty[048,048,1]
+#fxn[map_03_08] @sty[065,048,1]
+#fxn[map_04_08] @sty[084,048,1]
+#fxn[map_05_08] @sty[102,048,1]
+#fxn[map_06_08] @sty[120,048,1]
+#fxn[map_07_08] @sty[138,048,1]
+#fxn[map_08_08] @sty[155,048,1]
+#fxn[map_09_08] @sty[174,048,1]
+#fxn[map_10_08] @sty[190,048,1]
+
+#fxn[map_00_09] @sty[012,030,1]
+#fxn[map_01_09] @sty[030,030,1]
+#fxn[map_02_09] @sty[048,030,1]
+#fxn[map_03_09] @sty[065,030,1]
+#fxn[map_04_09] @sty[084,030,1]
+#fxn[map_05_09] @sty[102,030,1]
+#fxn[map_06_09] @sty[120,030,1]
+#fxn[map_07_09] @sty[138,030,1]
+#fxn[map_08_09] @sty[155,030,1]
+#fxn[map_09_09] @sty[174,030,1]
+#fxn[map_10_09] @sty[190,030,1]
+
+#fxn[map_00_10] @sty[012,012,1]
+#fxn[map_01_10] @sty[030,012,1]
+#fxn[map_02_10] @sty[048,012,1]
+#fxn[map_03_10] @sty[065,012,1]
+#fxn[map_04_10] @sty[084,012,1]
+#fxn[map_05_10] @sty[102,012,1]
+#fxn[map_06_10] @sty[120,012,1]
+#fxn[map_07_10] @sty[138,012,1]
+#fxn[map_08_10] @sty[155,012,1]
+#fxn[map_09_10] @sty[174,012,1]
+#fxn[map_10_10] @sty[190,012,1]
+
+#fxn[map_a_a] @sty[022,184,1]
+#fxn[map_b_a] @sty[040,184,1]
+#fxn[map_c_a] @sty[058,184,1]
+#fxn[map_d_a] @sty[075,184,1]
+#fxn[map_e_a] @sty[094,184,1]
+#fxn[map_f_a] @sty[112,184,1]
+#fxn[map_g_a] @sty[130,184,1]
+#fxn[map_h_a] @sty[148,184,1]
+#fxn[map_i_a] @sty[165,184,1]
+#fxn[map_j_a] @sty[184,184,1]
+
+#fxn[map_a_b] @sty[022,165,1]
+#fxn[map_b_b] @sty[040,165,1]
+#fxn[map_c_b] @sty[058,165,1]
+#fxn[map_d_b] @sty[075,165,1]
+#fxn[map_e_b] @sty[094,165,1]
+#fxn[map_f_b] @sty[112,165,1]
+#fxn[map_g_b] @sty[130,165,1]
+#fxn[map_h_b] @sty[148,165,1]
+#fxn[map_i_b] @sty[165,165,1]
+#fxn[map_j_b] @sty[184,165,1]
+
+#fxn[map_a_c] @sty[022,148,1]
+#fxn[map_b_c] @sty[040,148,1]
+#fxn[map_c_c] @sty[058,148,1]
+#fxn[map_d_c] @sty[075,148,1]
+#fxn[map_e_c] @sty[094,148,1]
+#fxn[map_f_c] @sty[112,148,1]
+#fxn[map_g_c] @sty[130,148,1]
+#fxn[map_h_c] @sty[148,148,1]
+#fxn[map_i_c] @sty[165,148,1]
+#fxn[map_j_c] @sty[184,148,1]
+
+#fxn[map_a_d] @sty[022,130,1]
+#fxn[map_b_d] @sty[040,130,1]
+#fxn[map_c_d] @sty[058,130,1]
+#fxn[map_d_d] @sty[075,130,1]
+#fxn[map_e_d] @sty[094,130,1]
+#fxn[map_f_d] @sty[112,130,1]
+#fxn[map_g_d] @sty[130,130,1]
+#fxn[map_h_d] @sty[148,130,1]
+#fxn[map_i_d] @sty[165,130,1]
+#fxn[map_j_d] @sty[184,130,1]
+
+#fxn[map_a_e] @sty[022,112,1]
+#fxn[map_b_e] @sty[040,112,1]
+#fxn[map_c_e] @sty[058,112,1]
+#fxn[map_d_e] @sty[075,112,1]
+#fxn[map_e_e] @sty[094,112,1]
+#fxn[map_f_e] @sty[112,112,1]
+#fxn[map_g_e] @sty[130,112,1]
+#fxn[map_h_e] @sty[148,112,1]
+#fxn[map_i_e] @sty[165,112,1]
+#fxn[map_j_e] @sty[184,112,1]
+
+#fxn[map_a_f] @sty[022,094,1]
+#fxn[map_b_f] @sty[040,094,1]
+#fxn[map_c_f] @sty[058,094,1]
+#fxn[map_d_f] @sty[075,094,1]
+#fxn[map_e_f] @sty[094,094,1]
+#fxn[map_f_f] @sty[112,094,1]
+#fxn[map_g_f] @sty[130,094,1]
+#fxn[map_h_f] @sty[148,094,1]
+#fxn[map_i_f] @sty[165,094,1]
+#fxn[map_j_f] @sty[184,094,1]
+
+#fxn[map_a_g] @sty[022,075,1]
+#fxn[map_b_g] @sty[040,075,1]
+#fxn[map_c_g] @sty[058,075,1]
+#fxn[map_d_g] @sty[075,075,1]
+#fxn[map_e_g] @sty[094,075,1]
+#fxn[map_f_g] @sty[112,075,1]
+#fxn[map_g_g] @sty[130,075,1]
+#fxn[map_h_g] @sty[148,075,1]
+#fxn[map_i_g] @sty[165,075,1]
+#fxn[map_j_g] @sty[184,075,1]
+
+#fxn[map_a_h] @sty[022,058,1]
+#fxn[map_b_h] @sty[040,058,1]
+#fxn[map_c_h] @sty[058,058,1]
+#fxn[map_d_h] @sty[075,058,1]
+#fxn[map_e_h] @sty[094,058,1]
+#fxn[map_f_h] @sty[112,058,1]
+#fxn[map_g_h] @sty[130,058,1]
+#fxn[map_h_h] @sty[148,058,1]
+#fxn[map_i_h] @sty[165,058,1]
+#fxn[map_j_h] @sty[184,058,1]
+
+#fxn[map_a_i] @sty[022,040,1]
+#fxn[map_b_i] @sty[040,040,1]
+#fxn[map_c_i] @sty[058,040,1]
+#fxn[map_d_i] @sty[075,040,1]
+#fxn[map_e_i] @sty[094,040,1]
+#fxn[map_f_i] @sty[112,040,1]
+#fxn[map_g_i] @sty[130,040,1]
+#fxn[map_h_i] @sty[148,040,1]
+#fxn[map_i_i] @sty[165,040,1]
+#fxn[map_j_i] @sty[184,040,1]
+
+#fxn[map_a_j] @sty[022,022,1]
+#fxn[map_b_j] @sty[040,022,1]
+#fxn[map_c_j] @sty[058,022,1]
+#fxn[map_d_j] @sty[075,022,1]
+#fxn[map_e_j] @sty[094,022,1]
+#fxn[map_f_j] @sty[112,022,1]
+#fxn[map_g_j] @sty[130,022,1]
+#fxn[map_h_j] @sty[148,022,1]
+#fxn[map_i_j] @sty[165,022,1]
+#fxn[map_j_j] @sty[184,022,1]

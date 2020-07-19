@@ -1,0 +1,31 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// BATTLING ------------------------------
+#fxn[battle_introaftercrawl] 205{_}
+
+// for current character, move cursor from state 1 to state 2
+// a attack
+// d defend
+// s skills
+// i items
+// b boost
+// e escape
+// because we never know the state of boost, we never move our cursor over it in order to get to something else
+#fxn[battle_a_a]             A 14{_}
+#fxn[battle_a_d]         D _ A // !!! HERE finish
+#fxn[battle_a_s]     D _ D _ A // !!! HERE finish
+#fxn[battle_a_i] D _ D _ D _ A // !!! HERE finish
+#fxn[battle_a_b]     U _ U _ A // !!! HERE finish
+#fxn[battle_a_e]         U _ A // !!! HERE finish
+// !!! HERE fill other cursor movements
+
+// for current attack, move cursor from enemy 1 to enemy 2
+#fxn[battle_1_1] A
+#fxn[battle_1_2] R _ A
+#fxn[battle_1_3] R _ R _ A
+#fxn[battle_1_4] R _ R _ R _ A
+#fxn[battle_1_5] R _ R _ R _ R _ A
+// !!! HERE fill other cursor movements
+
+#fxn[battle_batonpass] 4{_}

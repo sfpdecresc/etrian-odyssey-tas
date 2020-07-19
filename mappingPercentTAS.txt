@@ -1,0 +1,395 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// MAIN ----------------------------------
+#fxn[main]
+
+#cal[new_game]
+
+// mash through lore
+A     _
+A     _
+A     _
+A     _
+A     _
+A     _
+A     _
+A 258{_}
+
+// enter guild
+A 242{_}
+
+// mash through talking
+A    _
+A    _
+A    _
+A    _
+A 17{_}
+A 12{_}
+A    _
+A 76{_}
+
+// type guild name
+#cal[keyboard_cap]   _
+#cal[keyboard_e]     _
+#cal[keyboard_o]     _
+#cal[keyboard_t]     _
+#cal[keyboard_a]     _
+#cal[keyboard_s]     _
+#cal[keyboard_ent] 5{_}
+A 114{_}
+
+// mash through talking
+A 4{_}
+A _
+A _
+A _
+A _
+A 23{_}
+
+// register adventurer
+A                       93{_}
+#cal[keyboard_s]           _
+#cal[keyboard_f]           _
+#cal[keyboard_p]           _
+#cal[keyboard_ent]      58{_}
+#cal[regadv_protector2]
+
+// another
+A                   38{_}
+#cal[keyboard_shf]     _
+#cal[keyboard_d]       _
+#cal[keyboard_h]       _
+#cal[keyboard_r]       _
+#cal[keyboard_cap]     _
+#cal[keyboard_g]       _
+#cal[keyboard_r]       _
+#cal[keyboard_ent]  58{_}
+#cal[regadv_medic3]
+
+// another
+A                        38{_}
+#cal[keyboard_shf]          _
+#cal[keyboard_r]            _
+#cal[keyboard_o]            _
+#cal[keyboard_s]            _
+#cal[keyboard_a]            _
+#cal[keyboard_e]            _
+#cal[keyboard_l]            _
+#cal[keyboard_ent]       58{_}
+#cal[regadv_darkhunter3]
+
+// no more
+R _
+A 96{_}
+
+// formation
+D    _
+D    _
+A 28{_}
+// p1
+A  9{_}
+A  9{_}
+// p2
+A 10{_}
+A  9{_}
+// p3
+A 10{_}
+A 11{_}
+
+// confirm
+R _
+U _
+U _
+U _
+A 23{_}
+A 17{_}
+
+// leave
+B    _
+A 29{_}
+// [!] first-time warning for small formation
+A    _
+A    _
+A 96{_}
+
+// go to Radha Hall to solicit
+D     _
+A 257{_}
+A     _
+A     _
+A     _
+A  24{_}
+A  23{_}
+// accept mission
+A 23{_}
+A 19{_}
+A  5{_}
+A 29{_}
+A    _
+A    _
+A    _
+A 12{_}
+A 17{_}
+A 23{_}
+
+// leave
+B    _
+A 86{_}
+
+// to the forest
+D     _
+A 222{_}
+A 504{_}
+
+// draw BF1 map
+// the requirement appears to be [correctWalls + correctTiles - incorrectWalls - incorrectTiles ≥ someConstant]
+#cal[map_zoom_bc12]
+
+// BC-12
+_ #cal[map_pencil]
+#cal[map_05_06]
+#cal[map_02_06]
+#cal[map_02_01]
+#cal[map_01_01]
+#cal[map_01_07]
+#cal[map_05_07]
+_ #cal[map_pencil]
+#cal[map_08_07]
+#cal[map_10_07]
+_ #cal[map_pencil]
+#cal[map_08_06]
+#cal[map_10_06]
+_ #cal[map_brush]
+#cal[map_b_b]
+#cal[map_b_c]
+#cal[map_b_d]
+#cal[map_b_e]
+#cal[map_b_f]
+#cal[map_b_g]
+#cal[map_c_g]
+#cal[map_d_g]
+#cal[map_e_g]
+#cal[map_i_g]
+#cal[map_j_g]
+
+// BC-34
+_ #cal[map_scrolleast]
+_ #cal[map_scrolleast]
+_ #cal[map_pencil]
+#cal[map_07_07]
+#cal[map_00_07] // v
+#cal[map_01_06] // ^ diag
+#cal[map_09_06]
+#cal[map_09_01]
+#cal[map_08_01]
+#cal[map_08_05]
+#cal[map_00_05] // v
+#cal[map_01_04] // ^ diag
+#cal[map_07_04]
+#cal[map_07_00]
+_ #cal[map_brush]
+#cal[map_a_g]
+#cal[map_b_g]
+#cal[map_c_g]
+#cal[map_d_g]
+#cal[map_e_g]
+#cal[map_f_g]
+#cal[map_g_g]
+#cal[map_h_g]
+#cal[map_i_g]
+#cal[map_j_g]
+#cal[map_j_f]
+#cal[map_j_e]
+#cal[map_j_d]
+#cal[map_j_c]
+#cal[map_j_b]
+#cal[map_j_a]
+#cal[map_i_a]
+#cal[map_h_a]
+#cal[map_h_b]
+#cal[map_h_c]
+#cal[map_h_d]
+#cal[map_h_e]
+#cal[map_g_e]
+#cal[map_f_e]
+#cal[map_e_e]
+#cal[map_d_e]
+#cal[map_c_e]
+#cal[map_b_e]
+#cal[map_a_e]
+
+// DE-34
+_ #cal[map_scrollsouth]
+_ #cal[map_scrollsouth]
+_ #cal[map_pencil]
+#cal[map_09_03]
+#cal[map_09_10] // v
+#cal[map_08_09] // ^ diag
+#cal[map_08_02]
+#cal[map_06_02]
+#cal[map_06_03]
+#cal[map_07_03]
+#cal[map_07_07]
+#cal[map_06_07]
+#cal[map_06_04]
+#cal[map_04_04]
+#cal[map_04_03]
+#cal[map_05_03]
+#cal[map_05_02]
+#cal[map_00_02] // v
+#cal[map_01_03] // ^ diag
+#cal[map_03_03]
+#cal[map_03_04]
+#cal[map_00_04] // v
+#cal[map_01_05] // ^ diag
+#cal[map_05_05]
+#cal[map_05_07]
+#cal[map_03_07]
+#cal[map_03_08]
+#cal[map_02_08]
+#cal[map_02_07]
+#cal[map_00_07] // v
+#cal[map_02_09] // ^ diag x2
+#cal[map_04_09]
+#cal[map_04_08]
+#cal[map_05_08]
+#cal[map_05_10] // v
+#cal[map_06_09] // ^ diag
+#cal[map_06_08]
+#cal[map_07_08]
+#cal[map_07_10]
+
+// DE-12
+_ #cal[map_scrollwest]
+_ #cal[map_scrollwest]
+_ #cal[map_pencil]
+#cal[map_09_02]
+#cal[map_01_02]
+#cal[map_01_04]
+#cal[map_02_04]
+#cal[map_02_03]
+#cal[map_03_03]
+#cal[map_03_05]
+#cal[map_02_05]
+#cal[map_02_07]
+#cal[map_01_07]
+#cal[map_01_10] // v
+#cal[map_04_09] // ^ diag-ish
+#cal[map_04_07]
+#cal[map_03_07]
+#cal[map_03_06]
+#cal[map_04_06]
+#cal[map_04_03]
+#cal[map_10_03] // v
+#cal[map_09_04] // ^ diag
+#cal[map_09_06]
+#cal[map_10_06] // v
+#cal[map_09_07] // ^ diag
+#cal[map_09_10]
+_ #cal[map_brush]
+#cal[map_j_c]
+#cal[map_i_c]
+#cal[map_h_c]
+#cal[map_g_c]
+#cal[map_f_c]
+#cal[map_e_c]
+#cal[map_d_c]
+#cal[map_c_c]
+#cal[map_b_c]
+#cal[map_b_d]
+#cal[map_d_d]
+#cal[map_d_e]
+#cal[map_d_f]
+#cal[map_c_f]
+#cal[map_c_g]
+#cal[map_b_h]
+#cal[map_c_h]
+#cal[map_d_h]
+#cal[map_b_i]
+#cal[map_c_i]
+#cal[map_d_i]
+#cal[map_b_j]
+
+// walk to the guard
+// this could be interspersed in the map drawing, but I'm keeping things clean for now
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// PSA: remember skill points
+6{_}
+A    _
+A    _
+A    _
+A    _
+A    _
+A 13{_}
+
+// keep walking to the guard
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// ask the guard what a map is
+25{_}
+A    _
+A  2{_}
+A 18{_}
+A  7{_}
+A  2{_}
+A    _
+A  2{_}
+A    _
+A 24{_}
+A    _
+A 35{_}
+A 23{_}
+A 18{_}
+A 24{_}
+A  8{_}
+A 20{_}
+U    _
+A  7{_}
+A 65{_}
+
+// show the guard the completed map
+#cal[crawl_forward] 25{_}
+A    _
+A  2{_}
+A  2{_}
+A  2{_}
+A 31{_}
+
+// walk to B2F
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnright]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnleft]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnleft]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// ENC: rat fly rat
+#cal[battle_introaftercrawl]
+#cal[battle_a_a] #cal[battle_1_3] #cal[battle_batonpass]
+#cal[battle_a_a] #cal[battle_1_3] #cal[battle_batonpass]
+#cal[battle_a_a] #cal[battle_1_3] 120{A}
+// !!! HERE continue the battle

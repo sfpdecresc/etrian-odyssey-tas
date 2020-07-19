@@ -1,0 +1,15 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// !!! this file has not been adequately tested/used
+
+// NEW GAME ------------------------------
+#fxn[load_game]
+
+// intro fade in
+  340{_} // originally 330, then 326
+A 114{_}
+
+// load game
+A 140{_}
+A 99{_}

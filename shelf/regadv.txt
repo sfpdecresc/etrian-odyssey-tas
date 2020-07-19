@@ -1,0 +1,58 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// REGISTERING AN ADVENTURER -------------
+
+// the first option in a choice is auto-selected, and only needs to be clicked once
+// all other options must first be focused on, then clicked
+#fxn[regadv_landsknecht] @sty[030,030,1]     63{_}
+#fxn[regadv_survivalist] @sty[030,040,1] _ A 63{_}
+#fxn[regadv_protector]   @sty[030,055,1] _ A 63{_}
+#fxn[regadv_darkhunter]  @sty[030,070,1] _ A 63{_}
+#fxn[regadv_medic]       @sty[030,085,1] _ A 63{_}
+#fxn[regadv_alchemist]   @sty[030,100,1] _ A 63{_}
+#fxn[regadv_troubadour]  @sty[030,110,1] _ A 63{_}
+#fxn[regadv_ronin]       @sty[030,125,1] _ A 63{_}
+#fxn[regadv_hexer]       @sty[030,140,1] _ A 63{_}
+
+#fxn[regadv_portrait1] @sty[030,050,1]     30{_}
+#fxn[regadv_portrait2] @sty[090,050,1] _ A 30{_}
+#fxn[regadv_portrait3] @sty[150,050,1] _ A 30{_}
+#fxn[regadv_portrait4] @sty[210,050,1] _ A 30{_}
+
+#fxn[regadv_landsknecht1] #cal[regadv_landsknecht] #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_landsknecht2] #cal[regadv_landsknecht] #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_landsknecht3] #cal[regadv_landsknecht] #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_landsknecht4] #cal[regadv_landsknecht] #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_survivalist1] #cal[regadv_survivalist] #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_survivalist2] #cal[regadv_survivalist] #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_survivalist3] #cal[regadv_survivalist] #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_survivalist4] #cal[regadv_survivalist] #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_protector1]   #cal[regadv_protector]   #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_protector2]   #cal[regadv_protector]   #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_protector3]   #cal[regadv_protector]   #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_protector4]   #cal[regadv_protector]   #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_darkhunter1]  #cal[regadv_darkhunter]  #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_darkhunter2]  #cal[regadv_darkhunter]  #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_darkhunter3]  #cal[regadv_darkhunter]  #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_darkhunter4]  #cal[regadv_darkhunter]  #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_medic1]       #cal[regadv_medic]       #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_medic2]       #cal[regadv_medic]       #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_medic3]       #cal[regadv_medic]       #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_medic4]       #cal[regadv_medic]       #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_alchemist1]   #cal[regadv_alchemist]   #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_alchemist2]   #cal[regadv_alchemist]   #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_alchemist3]   #cal[regadv_alchemist]   #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_alchemist4]   #cal[regadv_alchemist]   #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_troubadour1]  #cal[regadv_troubadour]  #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_troubadour2]  #cal[regadv_troubadour]  #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_troubadour3]  #cal[regadv_troubadour]  #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_troubadour4]  #cal[regadv_troubadour]  #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_ronin1]       #cal[regadv_ronin]       #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_ronin2]       #cal[regadv_ronin]       #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_ronin3]       #cal[regadv_ronin]       #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_ronin4]       #cal[regadv_ronin]       #cal[regadv_portrait4] A 7{_} A 5{_}
+#fxn[regadv_hexer1]       #cal[regadv_hexer]       #cal[regadv_portrait1] A 7{_} A 5{_}
+#fxn[regadv_hexer2]       #cal[regadv_hexer]       #cal[regadv_portrait2] A 7{_} A 5{_}
+#fxn[regadv_hexer3]       #cal[regadv_hexer]       #cal[regadv_portrait3] A 7{_} A 5{_}
+#fxn[regadv_hexer4]       #cal[regadv_hexer]       #cal[regadv_portrait4] A 7{_} A 5{_}

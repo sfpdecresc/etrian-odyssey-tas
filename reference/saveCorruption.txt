@@ -1,0 +1,130 @@
+The information in this file corresponds to force rebooting the console in the middle of a save/clear process.
+
+INITIAL SAVE INFORMATION
+------------------------
+  1-111 : integrity-checked data
+112-768 : map data  [optional]
+769-775 : uncertain [optional]
+
+Data format:
+[blank frames between A press and reset]:
+[resulting message on load]
+
+0:
+1:
+5:
+20:
+50:
+100:
+110:
+111:
+"No saved game found."
+
+112:
+115:
+120:
+130:
+140:
+150:
+200:
+210:
+"B1F's map has been reset." through 30
+
+220:
+230:
+"B2F's map has been reset." through 30
+
+240:
+250:
+"B3F's map has been reset." through 30
+
+260:
+270:
+"B4F's map has been reset." through 30
+
+280:
+"B5F's map has been reset." through 30
+
+290:
+300:
+"B6F's map has been reset." through 30
+
+310:
+320:
+"B7F's map has been reset." through 30
+
+330:
+340:
+"B8F's map has been reset." through 30
+
+350:
+"B9F's map has been reset." through 30
+
+400:
+"B11F's map has been reset." through 30
+
+450:
+"B14F's map has been reset." through 30
+
+500:
+"B16F's map has been reset." through 30
+
+550:
+"B19F's map has been reset." through 30
+
+600:
+"B22F's map has been reset." through 30
+
+650:
+"B24F's map has been reset." through 30
+
+700:
+"B27F's map has been reset." through 30
+
+750:
+760:
+765:
+767:
+768:
+"B30F's map has been reset."
+
+769:
+770:
+775:
+"Load successful."
+
+DELETE DATA INFORMATION
+-----------------------
+  1-  16 : nothing impacted
+ 17-  95 : recoverable changes
+ 96- 189 : integrity-checked data
+
+Data format:
+[blank frames between A press and reset]:
+[resulting message on load]
+
+1:
+5:
+10:
+15:
+16:
+"Loading game data..."
+"Load successful."
+
+17:
+20:
+30:
+40:
+50:
+70:
+90:
+95:
+"Resuming backup data." w/progress bar
+"Load successful."
+
+96:
+97:
+100:
+189:
+"Loading game data..."
+"No saved game found."

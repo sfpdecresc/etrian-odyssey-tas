@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Etrian TAS Reverse-Translator</title>
+<meta charset="UTF-8">
+<script>
+var p = {
+	log : function(m){
+		document.querySelector(".log").value = m.toString()+"\n"+document.querySelector(".log").value;},
+	translate : function(inS){
+		var resS = "";
+		resS += "// Etrian Odyssey (North America)\n";
+		resS += "// Programmable Tool-Assisted Speedrun\n";
+		var linSA = [];
+		// line-for-line translation
+		var lineSA = inS.trim().split("\n");
+		for (var lineSAI = 0,lineSAC = lineSA.length; lineSAI < lineSAC; lineSAI++){var lineS = lineSA[lineSAI];
+			//|0|RLDUTSBAYXWEGxxx yyy s|
+			lineS.replace(/^\|(\d)\|([R\.])([L\.])([D\.])([U\.])([T\.])([S\.])([B\.])([A\.])([Y\.])([X\.])([W\.])([E\.])([G\.])(\d{3})\s(\d{3})\s([01])\|$/g,
+				(function(that,linSA){return function(matchS,c,R,L,D,U,T,S,B,A,Y,X,W,E,G,x,y,z,offsetN,stringS){
+					var resS = "";
+					var stateF  = (c !== "0");
+					var buttonF = (R+L+D+U+T+S+B+A+Y+X+W+E+G !== ".............");
+					var stylusF = (x+y+z !== "0000000");
+					var condensedButtonS = "";
+					if (R !== "."){condensedButtonS += "R";}
+					if (L !== "."){condensedButtonS += "L";}
+					if (D !== "."){condensedButtonS += "D";}
+					if (U !== "."){condensedButtonS += "U";}
+					if (T !== "."){condensedButtonS += "T";}
+					if (S !== "."){condensedButtonS += "S";}
+					if (B !== "."){condensedButtonS += "B";}
+					if (A !== "."){condensedButtonS += "A";}
+					if (Y !== "."){condensedButtonS += "Y";}
+					if (X !== "."){condensedButtonS += "X";}
+					if (W !== "."){condensedButtonS += "W";}
+					if (E !== "."){condensedButtonS += "E";}
+					if (G !== "."){condensedButtonS += "G";}
+					if      (!stateF && !buttonF && !stylusF){resS = "_";}
+					else if (!stateF && !buttonF &&  stylusF){
+						resS = "@sty["+x+","+y+","+z+"]";}
+					else if (!stateF &&  buttonF && !stylusF){
+						resS += condensedButtonS;}
+					else if (!stateF &&  buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					else if ( stateF && !buttonF && !stylusF){
+						if (c === "2"){resS = "@rst";}
+						else          {resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}}
+					else if ( stateF && !buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					else if ( stateF &&  buttonF && !stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					else if ( stateF &&  buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					linSA.push(resS);
+					return "";};}(this,linSA)));}
+		// loopification
+		var filSA = [];
+		var linS_PREV = null;
+		var counterN = 1;
+		for (var linSAI = 0,linSAC = linSA.length; linSAI < linSAC; linSAI++){var linS = linSA[linSAI];
+			if (linS_PREV === null){linS_PREV = linS;continue;} // initial fill
+			if (linS !== linS_PREV){
+				if (counterN === 1){
+					filSA.push(linS_PREV);}
+				else{
+					filSA.push(counterN+"{"+linS_PREV+"}");}
+				counterN = 1;}
+			else{
+				counterN++;}
+			linS_PREV = linS;}
+		if (linSAC > 1){
+			if (counterN === 1){
+				filSA.push(linS_PREV);}
+			else{
+				filSA.push(counterN+"{"+linS_PREV+"}");}}
+		resS += filSA.join("\n");
+		return {resS};
+	},
+};
+document.addEventListener("DOMContentLoaded",function(event){
+	var pumpFxn = function(){
+		var packageE = p.translate(document.querySelector(".chunk.in>.display").value);
+		document.querySelector(".chunk.out>.display").textContent = packageE.resS;};
+	var elL = document.querySelectorAll(".trigger");
+	for (var elLI = 0,elLC = elL.length; elLI < elLC; elLI++){var el = elL[elLI];
+		el.addEventListener("click",pumpFxn);}
+});
+window.addEventListener("beforeunload",function(event){
+	if (document.querySelector(".chunk.in>.display").value.length === 0 && document.querySelector(".chunk.out>.display").value.length === 0){return;}
+	var confirmationMessage = "There's text in these boxes. If you leave/reload this page, you will lose that text.";
+	event.returnValue = confirmationMessage;
+	return confirmationMessage;
+});
+</script>
+<style>
+* {font-family:monospace;box-sizing:border-box;}
+body {color:white;background-color:hsla(120,100%,7.5%,1);font-size:16px;padding:0px;margin:10px;}
+textarea,button {padding:6px;margin:0px;outline:none;}
+textarea      {color:white;background-color:black;border:1px solid hsla(120,100%,15%,1);white-space:nowrap;overflow:auto;resize:none;}
+button        {color:white;background-color:black;border:1px solid hsla(120,100%,20%,1);cursor:pointer;}
+button        {background-color:hsla(120,100%, 0%,1);}
+button:hover  {background-color:hsla(120,100%,10%,1);}
+button:focus  {background-color:hsla(120,100%,10%,1);}
+button:active {background-color:hsla(120,100%,20%,1);}
+.note {}
+.chunk {display:inline-block;width:200px;}
+.chunk.in  {width:300px;}
+.chunk.out {width:200px;}
+.chunk.log {width:200px;}
+.chunk>.trigger {display:block;width:100%;height:30px;font-size:16px;}
+.chunk>.title {font-size:24px;}
+.chunk>.display {width:100%;height:600px;}
+</style>
+</head>
+<body>
+<div class="note">This page is intended for use in Google Chrome.</div>
+<div class="chunk in">
+	<button class="trigger">translate</button>
+	<div class="title">Input</div>
+	<textarea class="display"></textarea>
+</div>
+<div class="chunk out">
+	<button class="trigger">translate</button>
+	<div class="title">Output</div>
+	<textarea class="display"></textarea>
+</div>
+<div class="chunk log">
+	<button class="trigger">translate</button>
+	<div class="title">Meta Log</div>
+	<textarea class="display"></textarea>
+</div>
+</body>
+</html>

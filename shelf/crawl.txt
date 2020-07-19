@@ -1,0 +1,8 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// DUNGEON CRAWLING ----------------------
+#fxn[crawl_forward]   U 33{_}
+#fxn[crawl_backward]  D 33{_}
+#fxn[crawl_turnright] R 19{_}
+#fxn[crawl_turnleft]  L 19{_}
